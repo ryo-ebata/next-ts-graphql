@@ -1,7 +1,7 @@
 import { useMutation } from '@apollo/client';
 import { useState, useEffect } from 'react';
 import { Btn } from '../../src/components/Atoms/Btn';
-import { InputSet } from '../../src/components/Atoms/InputSet';
+import { InputSet } from '../../src/components/Molecules/InputSet';
 import { LOGIN } from '../../src/gql/auth/LOGIN';
 import { NextPage } from 'next';
 
@@ -14,7 +14,7 @@ const Login: NextPage = () => {
 		if (data) {
 			console.log(data);
 			// ログイン成功時の処理をここに書く
-			const accessToken = data.login.access_token;
+			const accessToken = data.login.refresh_token;
 			localStorage.setItem('token', accessToken);
 			console.log('Login successful!');
 		}
